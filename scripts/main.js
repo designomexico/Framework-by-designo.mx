@@ -2,11 +2,18 @@
 
 $(function() {
 
-	//Definimos las versiones mínimas compatibles con el proyecto	///////////////////////////	///////////////////////////
+	//Definimos las versiones mínimas compatibles con el proyecto
+	///////////////////////////
+	///////////////////////////
     var min_explorer = 10;
     var min_safari = 6;
     var min_chrome = 24;
-    var min_firefox = 20;    var browser_id = 'old-browser';    var browser_id = 'http://www.browser-update.org/es/update.html';    ///////////////////////////     ///////////////////////////
+    var min_firefox = 20;
+    var browser_id = 'old-browser';
+    var browser_id = 'http://www.browser-update.org/es/update.html';
+    /////////////////////////// 
+    ///////////////////////////
+    //Aqui se verifica el navegador y version soportadas
     switch (bowser.name.toLowerCase()) {
         case "chrome":
             if (typeof min_chrome != "undefined") {
@@ -38,6 +45,12 @@ $(function() {
             }
             break;
     }
+    /**
+     * Funcion que se ejecuta en caso de que el navegador no cumpla con los requisitos minimos
+     * Si esta definido un browser_id, ese elemento se muestra (display block). Si no, busca que este dada de alta una URL de envio 'browser_htmlpage'.
+     * Finalmente si ninguna de las anteriores esta definida, se muestra un alert.
+     * @returns void
+     */
     function showUncapableBrowser() {
         if (typeof browser_id != "undefined" && browser_id != "") {
             $("#" + browser_id).css('display', 'block');
