@@ -1,9 +1,9 @@
-Framework-by-designo.mx
+HTML5 ie8+ Framework
 =======================
 
-Framework by designo.mx
+by designo.mx
 
-This is our own HTML5 ie8 compatible version of Framework for every day projects using:
+This is our own HTML5 ie8+ compatible version of Framework for every day projects using:
 
 - Responsive Grid
 - Bootstrap
