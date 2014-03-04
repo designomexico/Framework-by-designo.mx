@@ -554,7 +554,7 @@
         <!-- CONDICIONAL IE -->
 
         <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><!-- ie8 and below HTML5 rendering-->
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><!-- ie8 and below HTML5 rendering ->
         <![endif]-->
 
         <!-- ///////// -->
@@ -583,33 +583,6 @@
 
         <!-- JS del proyecto -->
         <script type="text/javascript" src="scripts/main.js"></script>
-        <script type="text/javascript">
-            /**
-             * Ejemplo para lanzar un evento en dispositivos cuando la pantalla rote (portrait o landscape)
-             * Solo funciona en algunos dispositivos que devuelven esos valores (android chrome, ios safari)
-             */
-            $(window).on("orientationchange", function(event) {
-                $("#log").text("This device is in " + event.orientation + " mode!");
-            });
-            $("body,html").on("swipeleft", swipeleftHandler);
-            $("body,html").on("swiperight", swiperightHandler);
-            $("body,html").on("swipedown", swipedownHandler);
-            $("body,html").on("swipeup", swipeupHandler);
-
-            //Funciones que se ejecuntan cuando sucede el evento
-            function swipeleftHandler(event) {
-                $("#log").text("swipeleft");
-            }
-            function swiperightHandler(event) {
-                $("#log").text("swiperight");
-            }
-            function swipeupHandler(event) {
-                $("#log").text("swipeup");
-            }
-            function swipedownHandler(event) {
-                $("#log").text("swipedown");
-            }
-        </script>
 
     </body>
 </html>
