@@ -1,0 +1,79 @@
+/* Responsive */
+
+/* change menu once we go below 980 */
+@media only screen
+and (max-width : 980px) {
+	
+}
+
+/* page changes */
+/* ipad */
+@media only screen
+and (min-width : 680px)
+and (max-width : 980px) {
+  #documentation { 
+    width: 662px; /* 647 + 15 */
+    margin: 0;
+  }
+  
+  #documentation .columns .double {
+    width: 414px;
+  }
+  
+  /* Functions */
+  #documentation .functions li {
+    width: 652px;	
+  }
+  #documentation .functions .explained {
+  	width: 492px;
+  }
+  
+  /* API */
+  #documentation .params { width: 640px; }
+  #documentation .inset h3,
+  #documentation .inset .params { width: 620px; }
+  #documentation .notations .desc { width: 387px; }
+  
+  #documentationMenu { display: none; }
+  
+  #scrollTop { margin-left: 291px; }
+}
+
+/* iphone */
+@media only screen
+and (max-width : 700px) { /* 680 + 10 + 10 */
+  #documentation {
+    width: 300px;
+    margin-left: 0px;
+  }
+  
+  #documentation .columns .column {
+    width: 100%;
+  }
+  
+  #documentation .columns .rightmost { display: none; }
+  #documentation .columns .rightmost img {
+    display:none;
+  }
+  
+  /* Functions */
+  #documentation .functions li {
+    width: 290px; 
+  }
+  #documentation .functions .function span { margin-bottom: 9px; }
+  #documentation .functions .explained {
+    width: 100%;
+    clear: both;
+  }
+  
+  /* API */
+  #documentation .params { width: 278px; }
+  #documentation .inset h3,
+  #documentation .inset .params { width: 258px; }
+  #documentation .notations .desc { width: 258px; clear: both; margin-bottom: 9px; padding-left: 5px; }
+  #documentation .notations .inset .desc { width: 238px; }
+		
+  #documentationMenu { display: none; }
+  
+  #scrollTop { margin-left: 108px; display:none; }
+}

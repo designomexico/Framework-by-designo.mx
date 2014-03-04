@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+	
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="robots" content="index,follow" >
+<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" >
+<meta name="description" content="Create stunning overlays that work great at any screensize, in all browsers on every device." >
+<meta name="keywords" content="lightbox, jquery lightbox, responsive lightbox, youtube lightbox, vimeo lightbox, html5 lightbox, zoom lightbox" >    
+	<title>Fresco - A Beautiful Responsive Lightbox | Documentation</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!--[if lt IE 9]> <script type="text/javascript" src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+<script type="text/javascript" src="http://www.youtube.com/iframe_api"></script>
+<script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script type="text/javascript" src="../assets/library/min/index-f=|js|default|documentation|documentation.js,|js|jquery.scrollTo|jquery.scrollTo-1.4.3.1-min.js.html"></script>
+  <script type="text/javascript" src="../js/fresco/fresco.js"></script>
+<script type="text/javascript" src="../js/prettify/prettify.js"></script>
+<script type="text/javascript" src="../js/prettify/lang-css.js"></script>
+<script type="text/javascript">
+    //<!--
+jQuery(document).ready(function($) {
+  $.each($('.chapter h2').get(), function() {
+		var text = $(this).html();
+    //var html = $(this).find('cufon cufontext').html() || 
+    if ($(this).find('cufon cufontext').html()) {
+      text = $(this).find('cufon cufontext').html();
+    }
+		if (/^(Fresco\.)/.test(text)) {
+		  text = text.substr(6);
+		}
+		
+    var id = 'api_' + text.substr(1).replace('()', '').toLowerCase();
+    
+		// make sure the li has an id we can scroll to
+		$(this).parents('.chapter').attr({ id: id });
+		
+		// now add subs for the menu linked to that
+		$('#documentationMenu .links').first().append($('<li>')
+		  .addClass('sub subsub')
+		  .append($('<a>')
+		    .attr({ href: '#' + id })
+		    .addClass('scrollTo')
+		    .append($('<span>')
+			    .html(text)
+			  )
+			  .append($('<sup>').html(' *'))
+		  )
+		  
+		);
+	});
+});
+    //-->
+</script>    
+    
+  <link href="../css/default/reset.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/style.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/documentation/documentation.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/documentation/documentation_responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/fresco/fresco.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/prettify/prettify-fresco-dark-ns.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../favicon.ico" rel="shortcut icon" >    
+    
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34735153-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    
+</head>
+<body>
+
+<div id='page'><div id='page-wrapper'>
+
+  <div id='header'>
+    <a href='../index.html' id='logo'><!-- logo --></a>
+    
+    
+<div id='menu'>
+  <div class='menu-buttons'>
+    <div class='item item-demonstrations'>
+    <a href='../index.html' class='state'><span>Demonstrations</span></a>
+  </div>
+  
+    <div class='item documentation'>
+    <a href='../documentation.html' class='state active'><span>Documentation</span></a>
+  </div>
+  
+      <div class='item item-download'>
+    <a href='../download.html' class='state'><span>Download</span>
+
+    
+      <i class='version-badge'>
+        1.4.5      </i>
+      
+    
+    </a>
+
+    
+     
+  </div>
+  
+       <div class='item item-community'>
+    <a href='../community.html' class='state'><span>Community</span></a>
+  </div>
+  
+  
+  </div>
+</div>
+</div>
+  
+  <div id='documentation_menu_top'>
+
+  <div class='item'>
+    <a href='installation.html' class='state'>Installation</a>
+  </div>
+
+  <div class='item'>
+    <a href='usage.html' class='state'>Usage</a>
+  </div>
+    
+  <div class='item'>
+    <a href='options.html' class='state'>Options</a>
+  </div>
+  
+    <div class='item'>
+    <a href='callbacks.html' class='state'>Callbacks</a>
+  </div>
+  
+  <div class='item'>
+    <a href='skins.html' class='state'>Skins</a>
+  </div>
+
+  <div class='item'>
+    <a href='api.html' class='state active'>API</a>
+  </div>
+  
+</div>
+
+  
+  <div id="content">
+    	
+<div id='documentation' class='documentation-api'>
+
+<div class='chapter'>
+  <h1 class='has_font'>API <a class='pro' href='../download.html'>Pro only</a></h1>
+
+  <p>The alternative to using the <a href='usage.html'>HTML based approach</a> is using the Javascript API. 
+  The API supports all the options of the HTML approach and provides some useful extra functions. For example, the most common use of the API is 
+  opening <a class='scrollTo' href='api.html#api_fresco_show_element_options_position'>groups of images using a single link</a>.</p>
+
+</div>
+
+<div class='chapter'>
+  <h2 class='has_font'>Fresco.show()</h2>
+  <p>This function is at the core of the API, it can be used to show a single item or a group.</p>
+
+  <h3 id='api_fresco_show_url'>Fresco.show( url )</h3>
+  
+  <p>The most basic usage of <span class='ic'>Fresco.show</span> is passing it a string. Fresco will then attempt to detect the correct way to show the file using the url.</p> 
+  
+  <div class='notations'>
+      <div class='notation'>
+        <h3><a href='api.html#api_fresco_show_url' class='scrollTo'>Fresco.show( url )</a></h3>   
+
+        <div class='params'>
+          <div class='param'>
+            <div class='name'><span>url</span></div>
+            <div class='types'>
+              <span class='type type_string'>string</span>
+            </div>
+            <div class='desc'>A string representing the url of the file.</div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <pre class='has-example'><code>jQuery(document).ready(function($) {
+  $('#demo_api_basic').bind('click', function(event) {
+    // stop default click behavior
+    event.preventDefault(); 
+
+    Fresco.show('image.jpg');
+  });
+});</code></pre>
+  <div class='example'>
+    <a href="api.html#" id="demo_show_url">Show image</a>
+
+    <script type='text/javascript'>
+      jQuery(document).ready(function($) {
+
+        $('#demo_show_url').bind('click', function(event) {
+          // stop default click behavior
+          event.preventDefault();
+
+          Fresco.show('/images/default/index/ezekiel_vg/ezekiel_vg_5.jpg');
+        });
+        
+      });
+    </script>
+  </div>
+  
+</div>
+
+<div class='chapter'>
+  <h3 id='api_fresco_show_element'>Fresco.show( Element )</h3>
+  <p>Using an <a href='api.html#api_element' class='scrollTo'>Element</a> Object instead makes it possible to pass in more values and <a href='options.html'>Options</a>.</p>
+  
+  <div class='notations'>
+    <div class='notation'>
+        <h3><a href='api.html#api_fresco_show_element' class='scrollTo'>Fresco.show( Element )</a></h3>   
+    
+        <div class='params'>
+          <div class='param'>
+            <div class='name'><span>Element</span></div>
+            <div class='types'>
+              <span class='type type_object'>object</span>
+            </div>
+            <div class='desc'>An <a href='api.html#api_element' class='scrollTo'>Element</a> Object, allowing for more values to be passed in than just the url.</div>
+          </div>
+        </div>
+        
+        <div class='inset'>
+            <h3 id='api_element'>Element = { url [ , caption ] [ , type ] [ , options ] }</h3> 
+            
+            <div class='params'>
+              <div class='param'>
+                <div class='name'><span>url</span></div>
+                <div class='types'>
+                  <span class='type type_string'>string</span>
+                </div>
+                <div class='desc'>A string representing the url of the file. By leaving out <span class='ic'>type</span> the media type will automatically be detected.</div>
+              </div>
+              
+              <div class='param'>
+                <div class='name'><span>caption</span></div>
+                <div class='types'>
+                  <span class='type type_string'>string</span>
+                </div>
+                <div class='desc'>The caption underneath the content.</div>
+              </div>
+              
+              <div class='param'>
+                <div class='name'><span>type</span></div>
+                <div class='types'>
+                  <span class='type type_string'>string</span>
+                </div>
+                <div class='desc'>Specifies the media type. Required when the type cannot be detected based on the url. 
+                One of: <span class='ic'>image</span>,<span class='ic'>youtube</span> or <span class='ic'>vimeo</span></div>
+              </div>
+              
+              <div class='param'>
+                <div class='name'><span>options</span></div>
+                <div class='types'>
+                  <span class='type type_object'>object</span>
+                </div>
+                <div class='desc'>An object containing a list of <a href='options.html'>Options</a>.</div>
+              </div>
+              
+            </div>
+        </div>
+        
+      </div>
+  </div>
+  
+  <pre class='has-example'><code>jQuery(document).ready(function($) {
+  $('#demo_show_element_object').bind('click', function(event) {
+    // stop default click behavior
+    event.preventDefault();
+
+    Fresco.show({
+      url: 'http://www.youtube.com/watch?v=c0KYU2j0TM4',
+      caption: 'This video is shown using the Javascript API',
+      options: {
+        width: 853, 
+        height: 480,
+        youtube: { autoplay: 0 }
+      }
+    });
+  });
+});</code></pre>
+  <div class='example'>
+    <a href="api.html#" id="demo_show_element_object">Show element</a>
+
+    <script type='text/javascript'>
+      jQuery(document).ready(function($) {
+        $('#demo_show_element_object').bind('click', function(event) {
+          // stop default click behavior
+          event.preventDefault();
+          
+          Fresco.show({
+            url: 'http://www.youtube.com/watch?v=c0KYU2j0TM4',
+            caption: 'This video is shown using the Javascript API',
+            options: {
+              width: 853, 
+              height: 480,
+              youtube: { autoplay: 0 }
+            }
+          });
+        });
+        
+      });
+    </script>
+  </div>
+  
+    
+</div>
+
+
+<div class='chapter'>
+  <h3 id='api_fresco_show_element_options_position'>Fresco.show( elements [ , options ] [ , position ] )</h3>
+  
+  <p>Groups can be shown by using an array of strings or objects, or a combination of both:</p>
+  
+  <div class='notations'>
+      <div class='notation'>
+        <h3><a href='api.html#api_fresco_show_elements_options_position' class='scrollTo'>Fresco.show( elements [ , options ] [ , position ] )</a></h3>   
+    
+        <div class='params'>
+          <div class='param'>
+            <div class='name'><span>elements</span></div>
+            <div class='types'>
+              <span class='type type_array'>array</span>
+           </div>
+            <div class='desc'>An array of <a href='api.html#api_element' class='scrollTo'>Elements</a>.</div>
+          </div>
+          
+          <div class='param'>
+            <div class='name'><span>options</span></div>
+            <div class='types'>
+              <span class='type type_object'>object</span>
+            </div>
+            <div class='desc'>An object containing a list of <a href='options.html'>Options</a> that will be applied to all 
+            the elements. Options set on individual elements will overwrite these options.</div>
+          </div>
+          
+          <div class='param'>
+            <div class='name'><span>position</span></div>
+            <div class='types'>
+              <span class='type type_number'>number</span>
+            </div>
+            <div class='desc'>The position to open within the elements, defaults to 1.</div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <pre><code>Fresco.show([
+  'image1.jpg',
+  'image2.jpg',
+  { url: 'http://www.youtube.com/watch?v=c0KYU2j0TM4', options: { width: 853, height: 480 } }
+]);</code></pre>
+
+  <p>The second parameter can be used to provide options for the entire group.</p>
+  
+    <pre class='has-example'><code>Fresco.show(['image1.jpg', 'image2.jpg', 'image3.jpg'], {
+  thumbnails: false
+});</code></pre>
+	<div class='example'>
+    <a href="api.html#" id="demo_show_elements_options">Group with grouped options</a>
+
+    <script type='text/javascript'>
+      jQuery(document).ready(function($) {
+
+        $('#demo_show_elements_options').bind('click', function(event) {
+          event.preventDefault();
+          
+          Fresco.show(['/images/default/index/dorhout-mees/dm1.jpg', '/images/default/index/dorhout-mees/dm2.jpg', '/images/default/index/dorhout-mees/dm3.jpg'], {
+            thumbnails: false
+          });
+        });
+        
+      });
+    </script>
+  </div>
+  
+  <p>Any options defined on individual objects will overwrite what's provided using the options parameter:</p>
+
+  <pre class='has-example'><code>Fresco.show([{
+  url: 'http://www.youtube.com/watch?v=c0KYU2j0TM4', 
+  options: {
+    width: 853, 
+    height: 480
+  }
+}, {
+  url: 'http://www.youtube.com/watch?v=nTFEUsudhfs'
+}, {
+  url: 'http://www.youtube.com/watch?v=F_NEIwDiCSw'
+}], {
+  width: 640,
+  height: 360
+});</code></pre>
+  <div class='example'>
+    <a href="api.html#" id="demo_show_individual_grouped_options">Individual &amp; grouped options</a>
+
+    <script type='text/javascript'>
+      jQuery(document).ready(function($) {
+
+        $('#demo_show_individual_grouped_options').bind('click', function(event) {
+          event.preventDefault();
+          
+          Fresco.show([{
+            url: 'http://www.youtube.com/watch?v=c0KYU2j0TM4', 
+            options: {
+              width: 853, 
+              height: 480
+            }
+          }, {
+            url: 'http://www.youtube.com/watch?v=nTFEUsudhfs'
+          }, {
+            url: 'http://www.youtube.com/watch?v=F_NEIwDiCSw'
+          }], {
+            width: 640,
+            height: 360
+          });
+        });
+        
+      });
+    </script>
+  </div>
+  
+  
+  <p>The position at which Fresco opens can be set with the last argument. Here is an example that opens a group at the second position:</p>
+
+  <pre class='has-example'><code>&lt;a href="#" id="demo_api_group"&gt;Group at 2nd position&lt;/a&gt;
+
+&lt;script type="text/javascript"&gt;
+jQuery(document).ready(function($) {
+  $('demo_api_group').bind('click', function(event) {
+    // stop default click behavior
+    event.preventDefault();
+
+    Fresco.show([
+      { url: 'image1.jpg' },
+      { url: 'image2.jpg' },
+      { url: 'image3.jpg' }
+    ], { ui: 'inside' }, 2);
+  });
+});
+&lt;/script&gt;</code></pre>
+  <div class='example'>
+    <a href="api.html#" id="demo_api_group">Group at 2nd position</a>
+
+    <script type='text/javascript'>
+      jQuery(document).ready(function($) {
+        
+        $('#demo_api_group').bind('click', function(event) {
+          // stop default click behavior
+          event.preventDefault();
+
+          Fresco.show([
+            { url: '/images/default/index/ezekiel_vg/ezekiel_vg_1.jpg' },
+            { url: '/images/default/index/ezekiel_vg/ezekiel_vg_2.jpg' },
+            { url: '/images/default/index/ezekiel_vg/ezekiel_vg_3.jpg' }
+          ], { ui: 'inside' }, 2);
+        });
+
+      });
+    </script>
+  </div>
+</div>
+
+
+<div class='chapter'>
+  <h3 id='api_fresco_show_elements_position'>Fresco.show( elements [ , position ] )</h3>
+  
+  <p>When passing in a group of elements setting options is not required. Using a number as the last argument will then set the opening position:</p>
+  
+  <div class='notations'>
+    <div class='notation'>
+        <h3><a href='api.html#api_fresco_show_elements_position' class='scrollTo'>Fresco.show( elements [ , position ] )</a></h3>   
+
+        <div class='params'>
+          <div class='param'>
+            <div class='name'><span>elements</span></div>
+            <div class='types'>
+              <span class='type type_array'>array</span>
+            </div>
+            <div class='desc'>An array of <a href='api.html#api_element' class='scrollTo'>Elements</a>.</div>
+          </div>
+          <div class='param'>
+            <div class='name'><span>position</span></div>
+            <div class='types'>
+              <span class='type type_number'>number</span>
+            </div>
+            <div class='desc'>The position to open within the elements, defaults to 1.</div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <pre class='has-example'><code>Fresco.show(['image1.jpg', 'image2.jpg', 'image3.jpg'], 3); // opens at 3th position</code></pre>
+  <div class='example'>
+    <a href="api.html#" id="demo_api_show_elements_position">Group at 3th position, without options</a>
+
+    <script type='text/javascript'>
+      jQuery(document).ready(function($) {
+        
+        $('#demo_api_show_elements_position').bind('click', function(event) {
+          // stop default click behavior
+          event.preventDefault();
+
+          Fresco.show([
+            '/images/default/index/ezekiel_vg/ezekiel_vg_1.jpg',
+            '/images/default/index/ezekiel_vg/ezekiel_vg_2.jpg',
+            '/images/default/index/ezekiel_vg/ezekiel_vg_3.jpg'
+          ], 3);
+        });
+
+      });
+    </script>
+  </div>
+  
+  
+  </div>
+
+
+<div class='chapter'>
+  <h3 id='api_fresco_show_htmlelement'>Fresco.show( HTMLElement )</h3>
+  
+  <div class='notations'>
+    <div class='notation'>
+      <h3><a href='api.html#api_fresco_show_htmlelement' class='scrollTo'>Fresco.show( HTMLElement )</a></h3>   
+
+        <div class='params'>
+          <div class='param'>
+	          <div class='name'><span>element</span></div>
+	          <div class='types'>
+          <span class='type type_htmlelement'>HTMLElement</span>
+        </div>
+	          <div class='desc'>An HTMLElement that has the required <a href='usage.html'>HTML attributes</a> set.</div>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <p>An HTMLElement that has the required <a href='usage.html'>Fresco attributes</a> set can be shown:</p>
+  
+  <pre><code>Fresco.show($('#element_id')[0]);</code></pre>
+</div>
+
+
+<div class='chapter'>
+   <h2 class='has_font'>Fresco.hide()</h2>
+   <p>Hides the Fresco window when visible.</p>
+
+   <pre><code>Fresco.hide();</code></pre>
+</div>
+
+
+<div class='chapter last'>
+      <h2 class='has_font'>Fresco.setDefaultSkin()</h2>
+      <p>Sets the name of the default skin, this skin will be used when no <span class='ic'>skin</span> option is provided.</p>
+
+      <div class='notations'>
+        <div class='notation'>
+          <h3>Fresco.setDefaultSkin( skin )</h3>   
+  
+          <div class='params'>
+            <div class='param'>
+              <div class='name'><span>skin</span></div>
+              <div class='types'>
+                <span class='type type_string'>string</span>
+              </div>
+              <div class='desc'>The name of the default skin, defaults to 'dark'.</div>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+      <p>This function should be called after the file that defines custom skins, for example:</p>
+    
+    <pre><code>&lt;script type='text/javascript' src='/js/fresco/fresco.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript' src='/js/fresco/fresco-custom-skin.js'&gt;&lt;/script&gt;
+
+&lt;script type='text/javascript'&gt;
+  Fresco.setDefaultSkin('custom');
+&lt;/script&gt;</code></pre>
+</div>
+
+
+
+</div>
+
+
+
+
+<div id='documentationMenu'>
+  <h1 class='has_font'>Contents</h1>
+
+  <ul class='links'>
+    
+    <li class='sub'><a href='api.html#api_functions' class='scrollTo'><span>Fresco</span></a></li>
+      
+      <!-- subsubs are generated dynamically -->
+  </ul>
+  
+  <p class='legenda'>* <a class='pro' href='../download.html'>Pro</a> Only</p>
+</div>  </div>
+  	
+  <div id='footer'>
+  <div class='columns'>
+    <div class='column column_half'>
+           </div>
+    
+    
+    <div class='column column_half rightmost'>
+	    <div class='copyright'>&copy; 2014 <a href='http://www.nickstakenburg.com'>Nick Stakenburg</a></div>
+	    
+	    <div class='by'>
+	   	  <a class='site' href='http://www.nickstakenburg.com'><!-- nickstakenburg --></a>
+	   	</div> 
+    </div>
+  </div>
+</div>
+
+  
+  
+<div id='userbar'>
+    
+		      <a href='../login.html' id='signin' class='user-button'>
+        <span class='text'>Sign in</span>       </a>
+        
+    <div id='all_projects'>
+      <div class='open'>
+        <div class='open_button_wrapper'>
+          <div class='open_button user-button'>
+            <span class='text'>Projects</span>           </div>
+        </div>
+        
+        <div class='open_links'>
+          <a href='../index.html'>
+            <span>Fresco - NEW</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/lightview'>
+            <span>Lightview</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/tipped'>
+            <span>Tipped</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+</div>
+</div></div>
+
+</body>
+</html>

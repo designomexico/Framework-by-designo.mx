@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	-moz-outline-style: none;
+}
+
+body {
+	font-size: 120% !important; //Aqui controlas el tamaño global de las fuentes 100% = 16px
+}

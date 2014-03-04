@@ -1,0 +1,209 @@
+.downloads h5 { margin-bottom: 19px; }
+
+#licenseOptions .content { float: left; position: relative; width: 100%; padding-right: 170px; }
+#licenseOptions .splash { zoom: 1; position: absolute; top: 0px; right: 0px; }
+
+#licenseOptions .disclaimer {
+  font-size: 11px;
+}
+
+.download_now {
+  float: right;
+  clear: both;
+  margin-bottom: 10px;
+}
+.download_now:hover { background-position: -147px 0; }
+.version {
+ float: right;
+ clear: both;
+ font-size: 9px;
+ text-transform: uppercase;
+ color: #666;
+ padding-right: 3px;
+}
+.version a,
+.version a:hover { color: #808080; }
+.version_string { color: #666; }
+
+#licenseOptions .licenses {
+  float: left;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#licenseOptions {
+  float: left;
+  width: 100%;
+  clear: both;
+}
+#licenseOptions .license ul {
+  padding: 0px;
+  list-style-position: inside;
+}
+
+#licenseOptions .license {
+  position: relative;
+  float: left;
+  width: 284px;
+  padding: 15px;
+  border: 1px solid #d4d4d4;
+  margin: 0 15px 0 0;
+  height: 218px;
+  background: #f7f7f7;
+  color: #666;
+  font-size: 11px;
+}
+.license .icon_font { font-size: 1.1em; }
+
+#licenseOptions .license h4 {
+  font-size: 13px;
+  color: #333;
+  line-height: 15px;
+  margin-bottom: 15px;
+}
+#licenseOptions .license h5 {
+ font-size: 11px;
+ color: #333;
+ margin-bottom: 8px;
+ font-weight: normal;
+ position: relative;
+}
+
+#licenseOptions .description { position: relative; }
+
+#licenseOptions .price {
+  position: absolute;
+  width: 284px;
+  padding: 12px 15px 0 15px;
+  border-top: 1px solid #d4d4d4;
+  box-shadow: inset 0 1px 0 #fff;
+  top: 189px;
+  left: 0;
+  height: 32px;
+  line-height: 32px;
+}
+#licenseOptions .price .purchaseButton {
+  float: right;
+}
+
+#licenseOptions .price .amount {
+  float: right;
+  padding-right: 15px;
+  font-size: 15px;
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #333;
+}
+
+.pro_footer { float: left; clear: both; width: 100%; }
+.downloads { 
+  float: right;
+  margin-right: 2px;
+}
+.downloads .download {
+  float: right;
+  clear: both;
+  margin-bottom: 10px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.downloads .download:hover { background-position: -174px 0; }
+.downloads .notavailable {
+	
+}
+.downloads .notavailable,
+.downloads .notavailable:hover {  background-position: -348px 0; }
+
+.paymentOptions {
+  float: right;
+  width: 100px;
+}
+.paymentOptions .description {
+  float: right;
+  color: #7d7d7d;
+  font-size: 9px;
+  font-style: italic;
+  margin-bottom: 3px;
+  margin-right: 8px;
+  padding-right: 8px;
+  border-right: 1px solid #ccc;
+}
+.paymentOptions .icons {
+  float: right;
+  text-align: right;
+  line-height: 35px;
+  margin-right: 15px;
+}
+.paymentOptions .icons .icon {
+  float: right;
+  height: 35px;
+  width: 54px;
+}
+.paymentOptions .icons .paypal {
+  background: url('../../../images/default/download/paypal_icon.gif') center center no-repeat;
+}
+
+
+.paymentOptions img {
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+.older-licensed-releases {
+	float: right;
+	text-align: right;
+	font-size: 9px;
+	text-transform: uppercase;
+	border-top: 1px solid #999;
+	color: #666;
+	padding-top: 6px;
+}
+.older-licensed-releases p { margin-bottom: 10px; }
+
+/*#faq .column {
+  width: 233px;
+}*/
+#faq .columns { margin-bottom: 0; }
+#faq { font-size: 11px; }
+#faq h5 { font-weight: normal; margin-bottom: 0;  font-size: 11px;}
+#faq .answer { color: #808080; }
+
+
+/* Responsive */
+/* Below 980 */
+@media only screen
+and (max-width : 980px) {
+
+  #licenseOptions .non_commercial {
+    width: 100%;
+    margin-right: 0;
+  }
+  #licenseOptions .non_commercial .content { 
+    padding-right: 0;
+  }
+  
+  #licenseOptions .licenses .license,
+  #licenseOptions .price { width: 290px; }
+  
+  #licenseOptions .licenses .license { 
+    margin-bottom: 18px;  
+  }
+}
+
+/* ipad */
+@media only screen
+and (min-width : 680px)
+and (max-width : 980px) {
+  #licenseOptions .column_double { width: 100%; }
+}
+/* iphone */
+@media only screen
+and (max-width : 700px) {
+  #licenseOptions .licenses .license,
+  #licenseOptions .price { width: 268px; }
+
+	
+  .results .name {
+    clear: both;  
+  }
+}

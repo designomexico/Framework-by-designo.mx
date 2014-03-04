@@ -1,0 +1,54 @@
+// FONTS
+
+/*
+class="glyphicon glyphicon-asterisk"
+//
+font-family: 'modern_pictograms';
+font-family: 'websymbols';
+font-family: 'Junction';
+font-family: 'Raleway Thin';
+font-family: 'LeagueScript';
+font-family: 'League Gothic Italic';
+font-family: 'League Gothic Reg';
+font-family: 'League Gothic Condensed';
+font-family: 'League Gothic Condensed Italic';
+font-family: 'Fanwood Italic';
+font-family: 'Fanwood Text';
+font-family: 'Fanwood';
+*/
+
+// VIEWPORT WIDTH CSS3
+/*
+1vw = 1% of viewport width
+1vh = 1% of viewport height
+1vmin = 1vw or 1vh, whichever is smaller
+1vmax = 1vw or 1vh, whichever is larger
+*/
+
+// @mediaqueries
+
+/* Landscape mobile & down */
+@media (max-width: 30em) {}
+
+/* Portrait tablet to landscape */
+@media (min-width: 30em) and (max-width: 50em) {}
+
+/* Landscape to small desktop */
+@media (min-width: 50em) and (max-width: 68.750em) {}
+
+/*Modern Desktop*/
+@media screen and (min-width:1280px) and (max-width:1599px) {}
+
+/*Big Modern Desktop*/
+@media screen and (min-width:1600px) {}
+
+/*Full HD Modern Desktop*/
+@media screen and (min-width:1920px) {}
+
+// LESS
+
+/*Uso Retina:
+#logo {
+  .at2x('/images/my_image.png', 200px, 100px);
+}
+*/

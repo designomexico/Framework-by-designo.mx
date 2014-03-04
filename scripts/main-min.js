@@ -1,0 +1,2 @@
+// JavaScript Document
+$(document).ready(function(){bowser.msie&&bowser.version<=8&&alert("ie8"),$("#demo_api_basic").bind("click",function(e){e.preventDefault(),Fresco.show("images/mini-big.png")})});

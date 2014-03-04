@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* CSS Document */
+
+//////////////////////////////////////////
+/*@media-queries independientes del grid*/
+//////////////////////////////////////////
+
+/* Landscape mobile & down */
+@media (max-width: 30em) {}
+
+/* Portrait tablet to landscape */
+@media (min-width: 30em) and (max-width: 50em) {}
+
+/* Landscape to small desktop */
+@media (min-width: 50em) and (max-width: 68.750em) {}
+
+/*Modern Desktop*/
+@media screen and (min-width:1280px) and (max-width:1599px) {}
+
+/*Big Modern Desktop*/
+@media screen and (min-width:1600px) {}
+
+/*Full HD Modern Desktop*/
+@media screen and (min-width:1920px) {}
+

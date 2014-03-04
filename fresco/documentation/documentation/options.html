@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+	
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="robots" content="index,follow" >
+<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" >
+<meta name="description" content="Create stunning overlays that work great at any screensize, in all browsers on every device." >
+<meta name="keywords" content="lightbox, jquery lightbox, responsive lightbox, youtube lightbox, vimeo lightbox, html5 lightbox, zoom lightbox" >    
+	<title>Fresco - A Beautiful Responsive Lightbox | Documentation</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!--[if lt IE 9]> <script type="text/javascript" src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+<script type="text/javascript" src="http://www.youtube.com/iframe_api"></script>
+<script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script type="text/javascript" src="../assets/library/min/index-f=|js|default|documentation|documentation.js,|js|jquery.scrollTo|jquery.scrollTo-1.4.3.1-min.js.html"></script>
+  <script type="text/javascript" src="../js/fresco/fresco.js"></script>
+<script type="text/javascript" src="../js/prettify/prettify.js"></script>
+<script type="text/javascript" src="../js/prettify/lang-css.js"></script>
+<script type="text/javascript">
+    //<!--
+$(document).ready(function() {
+  // Options
+  $.each($('#options .functions .function span').get().reverse(), function() {
+    var text = $(this).html();
+    
+    // make sure the li has an id we can scroll to
+    $(this).parents('.functions li').attr({ id: 'options_' + text.toLowerCase() });
+    
+    // now add subs for the menu linked to that
+    var a, li;
+    $('#documentationMenu .links').first().prepend((li = $(document.createElement('li')))
+      .addClass('sub')
+      .append((a = $('<a>'))
+        .attr({ href: '#options_' + text.toLowerCase() })
+        .addClass('scrollTo')
+	      .append($('<span>')
+	        .html(text)
+	      )
+      )
+    );
+    
+    if (!!$(this).siblings('.pro')[0]) {
+      a.append($('<sup>').html(' *'));
+    }
+  });
+});
+    //-->
+</script>    
+    
+  <link href="../css/default/reset.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/style.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/documentation/documentation.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/documentation/documentation_responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/fresco/fresco.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/prettify/prettify-fresco-dark-ns.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../favicon.ico" rel="shortcut icon" >    
+    
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34735153-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    
+</head>
+<body>
+
+<div id='page'><div id='page-wrapper'>
+
+  <div id='header'>
+    <a href='../index.html' id='logo'><!-- logo --></a>
+    
+    
+<div id='menu'>
+  <div class='menu-buttons'>
+    <div class='item item-demonstrations'>
+    <a href='../index.html' class='state'><span>Demonstrations</span></a>
+  </div>
+  
+    <div class='item documentation'>
+    <a href='../documentation.html' class='state active'><span>Documentation</span></a>
+  </div>
+  
+      <div class='item item-download'>
+    <a href='../download.html' class='state'><span>Download</span>
+
+    
+      <i class='version-badge'>
+        1.4.5      </i>
+      
+    
+    </a>
+
+    
+     
+  </div>
+  
+       <div class='item item-community'>
+    <a href='../community.html' class='state'><span>Community</span></a>
+  </div>
+  
+  
+  </div>
+</div>
+</div>
+  
+  <div id='documentation_menu_top'>
+
+  <div class='item'>
+    <a href='installation.html' class='state'>Installation</a>
+  </div>
+
+  <div class='item'>
+    <a href='usage.html' class='state'>Usage</a>
+  </div>
+    
+  <div class='item'>
+    <a href='options.html' class='state active'>Options</a>
+  </div>
+  
+    <div class='item'>
+    <a href='callbacks.html' class='state'>Callbacks</a>
+  </div>
+  
+  <div class='item'>
+    <a href='skins.html' class='state'>Skins</a>
+  </div>
+
+  <div class='item'>
+    <a href='api.html' class='state'>API</a>
+  </div>
+  
+</div>
+
+  
+  <div id="content">
+    	
+
+<div id='documentation'>
+
+<div class='chapter last' id='options'>
+  <h1 class='has_font'>Options</h1>
+
+  <p>Options can be set using the <span class='ic'>data-fresco-options</span> attribute. 
+  Some options are only available using <a href='../download.html'>Fresco Pro</a>.</p>
+  
+  <pre><code>&lt;a href="image.jpg" class="fresco" data-fresco-options="ui: 'inside'"&gt;Show Image&lt;/a&gt;</code></pre>
+  
+  <p>Or when used with groups, the <span class='ic'>data-fresco-group-options</span> attribute.</p>
+  
+  <pre><code>&lt;a href="image1.jpg" 
+   class="fresco" 
+   data-fresco-group="options_example" 
+   data-fresco-group-options="thumbnails: false, ui: 'inside'"&gt;Image 1&lt;/a&gt;
+&lt;a href="image2.jpg" 
+   class="fresco" 
+   data-fresco-group="options_example"&gt;Image 2&lt;/a&gt;
+&lt;a href="image3.jpg" 
+   class="fresco" 
+   data-fresco-group="options_example"&gt;Image 3&lt;/a&gt;</code></pre>
+  
+  <p>When using the <a href='api.html'>Javascript API</a> these would translate to:</p>
+  <pre><code>Fresco.show({ url: 'image.jpg', options: { ui: 'inside' } });</code></pre>
+  
+  <pre><code>Fresco.show(['image1.jpg', 'image2.jpg', 'image3.jpg'], { thumbnails: false, ui: 'inside' });</code></pre>
+  
+  <ul class='functions clearfix'>
+    <li>
+      <div class='function'><span>effects</span></div>
+      <div class='explained'>
+        <p>Sets the duration of individual effects, or disables them when set to <span style="font-style:italic">false</span>.</p>
+        
+        <pre><code>effects: false</code></pre>
+        
+        <p>These are all the available options:</p>
+         
+<pre><code>effects: {
+  content: { show: 10, hide: 10, sync: true },
+  loading: { show: 0,  hide: 300, delay: 250 },
+  thumbnails: { show: 200, slide: 0, load: 300, delay: 250 },
+  window:  { show: 400, hide: 300, position: 180 },
+  ui:      { show: 250, hide: 200, delay: 3000 }
+}</code></pre>
+
+        <p>A special option is <span class='ic'>content.sync</span>, having this enabled hides the current item while showing the next one. 
+        Setting it to <span style="font-style:italic">false</span> will hide the current item before showing the next one:</p>
+        
+        <pre><code>effects: { content: { sync: false } }</code></pre>
+      </div>
+    </li>
+    
+    
+        
+    <li>
+      <div class='function'><span>initialTypeOptions</span></div>
+      <div class='explained'>
+        <p>Initial options for different types, available types are <span class='ic'>image</span>, <span class='ic'>youtube</span> and <span class='ic'>vimeo</span>. 
+        
+        This option is there for use within <a href='skins.html'>skins</a> where it can help to adjust defaults to avoid code repetition. 
+        
+<pre><code>initialTypeOptions: {
+  'image': { },
+  'youtube': {
+    width: 640,
+    height: 360
+  },
+  'vimeo': {
+    width: 640,
+    height: 360
+  }
+}</code></pre>
+
+      </div>
+    </li>
+
+    
+    <li>
+      <div class='function'><span>keyboard</span></div>
+      <div class='explained'>
+        <p>Enable or disable individual keyboard buttons or all of them when set to <span style="font-style:italic">false</span>. 
+        Useful for when the content requires keyboard interaction.</p>
+
+<pre><code>keyboard: false</code></pre>
+
+       <p>Use an object to toggle individual buttons:</p>
+
+       <pre><code>keyboard: {
+  left: true,
+  right: true,
+  esc: false
+}</code></pre>
+
+      <div class='note'><div class='padder'>
+		    <span class='icon_font'>=</span>
+		    
+		    <strong>Note:</strong> The keys <span class='ic'>left</span> and <span class='ic'>right</span> are only enabled when 
+		    using the <span class='ic'>image</span> type. Any other type of content might require these keys.
+		  </div></div>
+
+      </div>
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>loop</span></div>
+      <div class='explained'>
+        <p>When set to <span style='font-style:italic'>true</span> a group becomes a continuous loop, keeping navigation buttons enabled at all times:</p>
+        
+<pre><code>loop: true</code></pre>
+      </div>
+    </li>
+
+
+    <li>
+      <div class='function'><span>overflow</span> <a class='pro' href='../download.html'>Pro</a></div>
+      <div class='explained'>
+        <p>Sets overflow along one or multiple axis, creating a zoom like effect whenever an image overflows. Available options are: <span class='ic'>none</span>, <span class='ic'>x</span>, <span class='ic'>y</span> and <span class='ic'>both</span></p>
+        
+        <p>See the <a href='usage/index.html#usage_zoom'>documentation on Zoom</a> for examples on using this option.</p>
+
+        <pre><code>overflow: 'y'</code></pre>
+
+
+        <div class='note'><div class='padder'>
+          <span class='icon_font'>=</span>
+          <strong>Note:</strong> Overflow is not supported on <strong>touch</strong> based devices because those devices use a different user interface. 
+        </div></div>
+
+      </div>
+      
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>overlay</span></div>
+      <div class='explained'>
+        <p>Options of the overlay, setting its <span class='ic'>close</span> option to false prevents clicks on the overlay from closing the window.</p>
+        
+<pre><code>overlay: { close: false }</code></pre>
+
+      </div>
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>onClick</span></div>
+      <div class='explained'>
+        <p>What to do when clicking the area overlapping an image. 
+        Available options are: 
+          <span class='ic'>'previous-next'</span>, 
+          <span class='ic'>'next'</span>, 
+          <span class='ic'>'close'</span> and 
+          <span class='ic'>false</span>.</p>
+        
+        
+        <div class='note'><div class='padder'>
+			    <span class='icon_font'>=</span>
+			    <strong>Note:</strong> This only affects <span class='ic'>ui: 'outside'</span>
+			  </div></div>
+        
+      </div>
+        
+        
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>position</span></div>
+      <div class='explained'>
+        <p>Shows a position indicator when enabled, disabled by default.</p>
+        
+        
+        <pre><code>position: true</code></pre>
+        
+        <div class='note'><div class='padder'>
+			    <span class='icon_font'>=</span>
+			    <strong>Note:</strong> The position will not be shown on smaller screens even if this option is enabled, 
+			    because on those screens the indicator takes up too much space. 
+			  </div></div>
+        
+      </div>
+        
+        
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>preload</span></div>
+      <div class='explained'>
+        <p>Enables or disabled preloading of images. When enabled the image before and after the one shown are preloaded. To disable preloading use: </p>
+        
+        
+        <pre><code>preload: false</code></pre>
+        
+        <div class='note'><div class='padder'>
+			    <span class='icon_font'>=</span>
+			    <strong>Note:</strong> Having <span class='ic'>thumbnails</span> enabled will automatically preload all images within visible thumbnail range, 
+			    so disabling preloading will only work when thumbnails are also disabled.
+			  </div></div>
+        
+      </div>
+        
+        
+    </li>
+    
+    
+    
+    <li>
+      <div class='function'><span>spacing</span></div>
+      <div class='explained'>
+        <p>The spacing around the window based on the <span class='ic'>overflow</span> option currently active.</p>
+        
+<pre><code>spacing: {
+  none: { horizontal: 20, vertical: 20 },
+  x: { horizontal: 0, vertical: 0 },
+  y: { horizontal: 0, vertical: 0 },
+  both: { horizontal: 0, vertical: 0 }
+}</code></pre>
+        </div>
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>skin</span></div>
+      <div class='explained'>
+        <p>Sets the skin, the options of this skin will be applied as a starting point for other options. 
+        Available skins are: <span class='ic'>fresco</span> and any added custom skins. 
+        </p>
+        
+<pre><code>skin: 'fresco'</code></pre>
+
+        
+			  <div class='note'><div class='padder'>
+			    <span class='icon_font'>=</span>
+			    
+			    <strong>Note:</strong> Internet Explorer 6 will <strong>always</strong> use the <span class='ic'>IE6</span> skin, a minimal version of the fresco skin. 
+			  </div></div>
+			  
+        <div class='note'><div class='padder'>
+			    <span class='icon_font'>=</span>
+			    
+			    <strong>Note:</strong> See the <a href='skins.html'>Skins</a> section for instructions on creating and customizing skins.
+			  </div></div>
+			  
+      </div>
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>thumbnail</span> <a class='pro' href='../download.html'>Pro</a></div>
+      <div class='explained'>
+        <p>Sets a thumbnail image. Images and Youtube videos have a thumbnail based on their source by default, 
+        this option can be used to set an alternative. For every other type this option will have to be set to generate 
+        a thumbnail:</p>
+        
+<pre><code>thumbnail: 'thumbnail.jpg'</code></pre>
+
+      </div>
+    </li>
+    
+    <li>
+      <div class='function'><span>thumbnails</span> <a class='pro' href='../download.html'>Pro</a></div>
+      <div class='explained'>
+        <p>Enabled or disables the thumbnails below the content.</p>
+        
+<pre><code>thumbnails: false</code></pre>
+        
+        <div class='note'><div class='padder'>
+			    <span class='icon_font'>=</span>
+			    
+			    <strong>Note:</strong> Thumbnails will be disabled when 1 or more items in a group don't have a thumbnail set. 
+			  </div></div>
+
+        <div class='note'><div class='padder'>
+          <span class='icon_font'>=</span>
+          
+          <strong>Note:</strong> Thumbnails aren't used on <strong>touch</strong> based devices, this is mostly for performance reasons.
+        </div></div>
+  
+      </div>
+    </li>
+    
+    <li>
+      <div class='function'><span>touchEffects</span></div>
+      <div class='explained'>
+        <p>These options overwrite those set using the <span class='ic'>effects</span> option, on touch based devices.</p>
+        
+<pre><code>touchEffects: {
+      ui: { show: 175, hide: 175, delay: 5000 }
+}</code></pre>
+      </div>
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>ui</span> <a class='pro' href='../download.html'>Pro</a></div>
+      <div class='explained'>
+        <p>Sets position of user interface elements. The default is <span class='ic'>outside</span> 
+        which positions everything outside of the content, <span class='ic'>inside</span> puts the elements on top of the content:</p>
+        
+<pre><code>ui: 'inside'</code></pre>
+
+      </div>
+    </li>
+    
+    <li>
+      <div class='function'><span>vimeo</span> <a class='pro' href='../download.html'>Pro</a></div>
+      <div class='explained'>
+        <p>Sets the player parameters of a Vimeo video, available options can be found in the Vimeo documentation: 
+        <a href='http://developer.vimeo.com/player/embedding' target='_blank'>Vimeo Player Embedding</a>.</p>
+        
+<pre><code>vimeo: {
+  autoplay: 1,
+  title: 1,
+  byline: 1,
+  portrait: 0,
+  loop: 0
+}</code></pre>
+
+      </div>
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>youtube</span> <a class='pro' href='../download.html'>Pro</a></div>
+      <div class='explained'>
+        <p>Sets the player parameters of a Youtube video, available options can be found in the Youtube documentation: 
+        <a href='https://developers.google.com/youtube/player_parameters?playerVersion=HTML5' target='_blank'>YouTube Embedded Players and Player Parameters</a>.</p>
+        
+<pre><code>youtube: {
+  autohide: 1,
+  autoplay: 1,
+  controls: 1,
+  enablejsapi: 1,
+  hd: 1,
+  iv_load_policy: 3,
+  loop: 0,
+  modestbranding: 1,
+  rel: 0
+}</code></pre>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+</div>
+
+
+
+
+<div id='documentationMenu'>
+  <h1 class='has_font'>Contents</h1>
+
+  <ul class='links'>
+      <!-- subs are generated dynamically -->
+  </ul>
+  
+  <p class='legenda'>* <a class='pro' href='../download.html'>Pro</a> Only</p>
+</div>  </div>
+  	
+  <div id='footer'>
+  <div class='columns'>
+    <div class='column column_half'>
+           </div>
+    
+    
+    <div class='column column_half rightmost'>
+	    <div class='copyright'>&copy; 2014 <a href='http://www.nickstakenburg.com'>Nick Stakenburg</a></div>
+	    
+	    <div class='by'>
+	   	  <a class='site' href='http://www.nickstakenburg.com'><!-- nickstakenburg --></a>
+	   	</div> 
+    </div>
+  </div>
+</div>
+
+  
+  
+<div id='userbar'>
+    
+		      <a href='../login.html' id='signin' class='user-button'>
+        <span class='text'>Sign in</span>       </a>
+        
+    <div id='all_projects'>
+      <div class='open'>
+        <div class='open_button_wrapper'>
+          <div class='open_button user-button'>
+            <span class='text'>Projects</span>           </div>
+        </div>
+        
+        <div class='open_links'>
+          <a href='../index.html'>
+            <span>Fresco - NEW</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/lightview'>
+            <span>Lightview</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/tipped'>
+            <span>Tipped</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+</div>
+</div></div>
+
+</body>
+</html>

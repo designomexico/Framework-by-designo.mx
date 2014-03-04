@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+	
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="robots" content="index,follow" >
+<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" >
+<meta name="description" content="Create stunning overlays that work great at any screensize, in all browsers on every device." >
+<meta name="keywords" content="lightbox, jquery lightbox, responsive lightbox, youtube lightbox, vimeo lightbox, html5 lightbox, zoom lightbox" >    
+	<title>Fresco - A Beautiful Responsive Lightbox | Documentation</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!--[if lt IE 9]> <script type="text/javascript" src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+<script type="text/javascript" src="http://www.youtube.com/iframe_api"></script>
+<script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script type="text/javascript" src="../assets/library/min/index-f=|js|default|documentation|documentation.js,|js|jquery.scrollTo|jquery.scrollTo-1.4.3.1-min.js.html"></script>
+  <script type="text/javascript" src="../js/fresco/fresco.js"></script>
+<script type="text/javascript" src="../js/prettify/prettify.js"></script>
+<script type="text/javascript" src="../js/prettify/lang-css.js"></script>
+<script type="text/javascript">
+    //<!--
+jQuery(document).ready(function($) {
+  // Callbacks
+  $.each($('#callbacks .functions .function span').get().reverse(), function() {
+    var text = $(this).html();
+    
+    // make sure the li has an id we can scroll to
+    $(this).parents('.functions li').attr({ id: 'callbacks_' + text.toLowerCase() });
+    
+    // now add subs for the menu linked to that
+    $('#documentationMenu .links').first().prepend($(document.createElement('li'))
+      .addClass('sub')
+      .append($('<a>')
+        .attr({ href: '#callbacks_' + text.toLowerCase() })
+        .addClass('scrollTo')
+        .append($('<span>')
+	        .html(text)
+        )
+        .append($('<sup>').html(' *'))
+      )
+    );
+  });
+});
+    //-->
+</script>    
+    
+  <link href="../css/default/reset.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/style.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/documentation/documentation.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/documentation/documentation_responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/fresco/fresco.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/prettify/prettify-fresco-dark-ns.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../favicon.ico" rel="shortcut icon" >    
+    
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34735153-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    
+</head>
+<body>
+
+<div id='page'><div id='page-wrapper'>
+
+  <div id='header'>
+    <a href='../index.html' id='logo'><!-- logo --></a>
+    
+    
+<div id='menu'>
+  <div class='menu-buttons'>
+    <div class='item item-demonstrations'>
+    <a href='../index.html' class='state'><span>Demonstrations</span></a>
+  </div>
+  
+    <div class='item documentation'>
+    <a href='../documentation.html' class='state active'><span>Documentation</span></a>
+  </div>
+  
+      <div class='item item-download'>
+    <a href='../download.html' class='state'><span>Download</span>
+
+    
+      <i class='version-badge'>
+        1.4.5      </i>
+      
+    
+    </a>
+
+    
+     
+  </div>
+  
+       <div class='item item-community'>
+    <a href='../community.html' class='state'><span>Community</span></a>
+  </div>
+  
+  
+  </div>
+</div>
+</div>
+  
+  <div id='documentation_menu_top'>
+
+  <div class='item'>
+    <a href='installation.html' class='state'>Installation</a>
+  </div>
+
+  <div class='item'>
+    <a href='usage.html' class='state'>Usage</a>
+  </div>
+    
+  <div class='item'>
+    <a href='options.html' class='state'>Options</a>
+  </div>
+  
+    <div class='item'>
+    <a href='callbacks.html' class='state active'>Callbacks</a>
+  </div>
+  
+  <div class='item'>
+    <a href='skins.html' class='state'>Skins</a>
+  </div>
+
+  <div class='item'>
+    <a href='api.html' class='state'>API</a>
+  </div>
+  
+</div>
+
+  
+  <div id="content">
+    	
+<div id='documentation'>
+
+
+<div class='chapter last' id='callbacks'>
+  <h1 class='has_font'>Callbacks <a class='pro' href='../download.html'>Pro only</a></h1>
+  
+  <p><a href='../download.html'>Fresco Pro</a> adds a number of callbacks that can be used alongside other <a href='options.html'>Options</a>.</p>
+  
+  
+  <ul class='functions clearfix'>
+    <li>
+      <div class='function'><span>afterPosition</span></div>
+      <div class='explained'>
+        <p>A function to call after the position changes. The first argument is the current <span class='ic'>position</span> within the loaded group.</p>
+        
+<pre><code>afterPosition: function(position) {
+  alert("You've reached position " + position);
+}</code></pre>
+
+      </div>
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>afterHide</span></div>
+      <div class='explained'>
+        <p>A function to call when Fresco hides.</p>
+        
+<pre><code>afterHide: function() {
+  alert('Fresco is no longer visible');
+}</code></pre>
+
+
+      </div>
+    </li>
+    
+    
+    <li>
+      <div class='function'><span>onShow</span></div>
+      <div class='explained'>
+        <p>A function to call when Fresco comes into view.</p>
+        
+<pre><code>onShow: function() {
+  alert('Fresco is visible');
+}</code></pre>
+
+
+      </div>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+</div>
+
+
+
+
+<div id='documentationMenu'>
+  <h1 class='has_font'>Contents</h1>
+
+  <ul class='links'>
+      <!-- subs are generated dynamically -->
+  </ul>
+  
+  <p class='legenda'>* <a class='pro' href='../download.html'>Pro</a> Only</p>
+</div>  </div>
+  	
+  <div id='footer'>
+  <div class='columns'>
+    <div class='column column_half'>
+           </div>
+    
+    
+    <div class='column column_half rightmost'>
+	    <div class='copyright'>&copy; 2014 <a href='http://www.nickstakenburg.com'>Nick Stakenburg</a></div>
+	    
+	    <div class='by'>
+	   	  <a class='site' href='http://www.nickstakenburg.com'><!-- nickstakenburg --></a>
+	   	</div> 
+    </div>
+  </div>
+</div>
+
+  
+  
+<div id='userbar'>
+    
+		      <a href='../login.html' id='signin' class='user-button'>
+        <span class='text'>Sign in</span>       </a>
+        
+    <div id='all_projects'>
+      <div class='open'>
+        <div class='open_button_wrapper'>
+          <div class='open_button user-button'>
+            <span class='text'>Projects</span>           </div>
+        </div>
+        
+        <div class='open_links'>
+          <a href='../index.html'>
+            <span>Fresco - NEW</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/lightview'>
+            <span>Lightview</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/tipped'>
+            <span>Tipped</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+</div>
+</div></div>
+
+</body>
+</html>

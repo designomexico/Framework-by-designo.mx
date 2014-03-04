@@ -1,0 +1,6 @@
+.linkIcons {
+	text-align: right;
+}
+.linkIcons a { margin-left: 8px; }
+
+.entry { float: left; width: 100%; clear: both; }

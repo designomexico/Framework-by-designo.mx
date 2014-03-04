@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+	
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="robots" content="index,follow" >
+<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" >
+<meta name="description" content="Create stunning overlays that work great at any screensize, in all browsers on every device." >
+<meta name="keywords" content="lightbox, jquery lightbox, responsive lightbox, youtube lightbox, vimeo lightbox, html5 lightbox, zoom lightbox" >    
+	<title>Fresco - A Beautiful Responsive Lightbox | Documentation</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!--[if lt IE 9]> <script type="text/javascript" src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+<script type="text/javascript" src="http://www.youtube.com/iframe_api"></script>
+<script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script type="text/javascript" src="assets/library/min/index-f=|js|default|documentation|documentation.js,|js|jquery.scrollTo|jquery.scrollTo-1.4.3.1-min.js.html"></script>
+  <script type="text/javascript" src="js/fresco/fresco.js"></script>
+<script type="text/javascript" src="js/prettify/prettify.js"></script>
+<script type="text/javascript" src="js/prettify/lang-css.js"></script>    
+    
+  <link href="css/default/reset.css" media="all" rel="stylesheet" type="text/css" >
+<link href="css/default/style.css" media="all" rel="stylesheet" type="text/css" >
+<link href="css/default/responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="css/default/documentation/documentation.css" media="all" rel="stylesheet" type="text/css" >
+<link href="css/default/documentation/documentation_responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="css/fresco/fresco.css" media="all" rel="stylesheet" type="text/css" >
+<link href="css/prettify/prettify-fresco-dark-ns.css" media="all" rel="stylesheet" type="text/css" >
+<link href="favicon.ico" rel="shortcut icon" >    
+    
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34735153-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    
+</head>
+<body>
+
+<div id='page'><div id='page-wrapper'>
+
+  <div id='header'>
+    <a href='index.html' id='logo'><!-- logo --></a>
+    
+    
+<div id='menu'>
+  <div class='menu-buttons'>
+    <div class='item item-demonstrations'>
+    <a href='index.html' class='state'><span>Demonstrations</span></a>
+  </div>
+  
+    <div class='item documentation'>
+    <a href='documentation.html' class='state active'><span>Documentation</span></a>
+  </div>
+  
+      <div class='item item-download'>
+    <a href='download.html' class='state'><span>Download</span>
+
+    
+      <i class='version-badge'>
+        1.4.5      </i>
+      
+    
+    </a>
+
+    
+     
+  </div>
+  
+       <div class='item item-community'>
+    <a href='community.html' class='state'><span>Community</span></a>
+  </div>
+  
+  
+  </div>
+</div>
+</div>
+  
+  <div id='documentation_menu_top'>
+
+  <div class='item'>
+    <a href='documentation/installation.html' class='state active'>Installation</a>
+  </div>
+
+  <div class='item'>
+    <a href='documentation/usage.html' class='state'>Usage</a>
+  </div>
+    
+  <div class='item'>
+    <a href='documentation/options.html' class='state'>Options</a>
+  </div>
+  
+    <div class='item'>
+    <a href='documentation/callbacks.html' class='state'>Callbacks</a>
+  </div>
+  
+  <div class='item'>
+    <a href='documentation/skins.html' class='state'>Skins</a>
+  </div>
+
+  <div class='item'>
+    <a href='documentation/api.html' class='state'>API</a>
+  </div>
+  
+</div>
+
+  
+  <div id="content">
+    	<div id='documentation'>
+
+<div class='chapter last'>
+  <h1 class='has_font' id='installation'>Installation</h1>
+  
+  <p>First make sure the <a href='http://dev.w3.org/html5/spec/syntax.html#the-doctype' target='_blank'>HTML5 doctype</a> 
+  is set as the very first line on the page:</p>
+  
+  <pre><code class='language-html'>&lt;!DOCTYPE html&gt;</code></pre>
+  
+  <p>Include <a href='http://www.jquery.com' target='_blank'>jQuery</a> 1.4.4 or above in the header. Going with the latest 1.10.x release is recommended for optimal performance, 
+  the <a href='http://jquery.com/download/' target='_blank'>jQuery CDN</a> 
+  can be used for this.</p>
+  
+  <p><a href='download.html'>Download Fresco</a>  
+  and upload the files from the package to your server. 
+  Include <span class='ic'>fresco.js</span> and its dependancies below jQuery. Also include <span class='ic'>fresco.css</span> 
+  and make sure the include paths point to the locations where the files have been uploaded.</p>
+  
+  <p>Including the Youtube Iframe API, is not required, adding it allows Fresco to force HD quality onto Youtube videos.</p>
+  
+  <pre><code>&lt;!-- jQuery --&gt;
+&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Make IE8 and below responsive by adding CSS3 MediaQuery support --&gt;
+&lt;!--[if lt IE 9]&gt;
+  &lt;script type="text/javascript" src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+
+&lt;!-- Youtube and Vimeo API (improves video on touch devices and gives better HD support) --&gt;
+&lt;script type="text/javascript" src="http://www.youtube.com/iframe_api"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Fresco --&gt;
+&lt;script type="text/javascript" src="/js/fresco/fresco.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="/css/fresco/fresco.css"/&gt;</code></pre>
+
+  <p>That's it! Fresco should now be <a href='documentation/usage.html'>ready for use</a>.</p>
+  
+  <div class='note'><div class='padder'>
+    <span class='icon_font'>=</span>
+    
+    <strong>Note:</strong> The downloads have an <span style='font-style:italic'>example</span> folder demonstrating the installation. 
+    Leave a message on <a href='http://forum.nickstakenburg.com' target='_blank'>the forum</a> to get support should any problems arise during installation.
+  </div></div>
+</div>
+
+</div>
+
+
+<div id='documentationMenu'>
+  <h1 class='has_font'>Contents</h1>
+
+  <ul class='links'>
+      <li class='sub'><a href='documentation.html#installation' class='scrollTo'><span>Installation</span></a></li>
+  </ul>
+</div>  </div>
+  	
+  <div id='footer'>
+  <div class='columns'>
+    <div class='column column_half'>
+           </div>
+    
+    
+    <div class='column column_half rightmost'>
+	    <div class='copyright'>&copy; 2014 <a href='http://www.nickstakenburg.com'>Nick Stakenburg</a></div>
+	    
+	    <div class='by'>
+	   	  <a class='site' href='http://www.nickstakenburg.com'><!-- nickstakenburg --></a>
+	   	</div> 
+    </div>
+  </div>
+</div>
+
+  
+  
+<div id='userbar'>
+    
+		      <a href='login.html' id='signin' class='user-button'>
+        <span class='text'>Sign in</span>       </a>
+        
+    <div id='all_projects'>
+      <div class='open'>
+        <div class='open_button_wrapper'>
+          <div class='open_button user-button'>
+            <span class='text'>Projects</span>           </div>
+        </div>
+        
+        <div class='open_links'>
+          <a href='index.html'>
+            <span>Fresco - NEW</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/lightview'>
+            <span>Lightview</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/tipped'>
+            <span>Tipped</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+</div>
+</div></div>
+
+</body>
+</html>

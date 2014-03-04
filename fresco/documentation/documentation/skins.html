@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+	
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="robots" content="index,follow" >
+<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" >
+<meta name="description" content="Create stunning overlays that work great at any screensize, in all browsers on every device." >
+<meta name="keywords" content="lightbox, jquery lightbox, responsive lightbox, youtube lightbox, vimeo lightbox, html5 lightbox, zoom lightbox" >    
+	<title>Fresco - A Beautiful Responsive Lightbox | Documentation</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!--[if lt IE 9]> <script type="text/javascript" src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+<script type="text/javascript" src="http://www.youtube.com/iframe_api"></script>
+<script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script type="text/javascript" src="../assets/library/min/index-f=|js|default|documentation|documentation.js,|js|jquery.scrollTo|jquery.scrollTo-1.4.3.1-min.js.html"></script>
+  <script type="text/javascript" src="../js/fresco/fresco.js"></script>
+<script type="text/javascript" src="../js/prettify/prettify.js"></script>
+<script type="text/javascript" src="../js/prettify/lang-css.js"></script>    
+    
+  <link href="../css/default/reset.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/style.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/documentation/documentation.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/default/documentation/documentation_responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/fresco/fresco.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../css/prettify/prettify-fresco-dark-ns.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../favicon.ico" rel="shortcut icon" >    
+    
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34735153-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    
+</head>
+<body>
+
+<div id='page'><div id='page-wrapper'>
+
+  <div id='header'>
+    <a href='../index.html' id='logo'><!-- logo --></a>
+    
+    
+<div id='menu'>
+  <div class='menu-buttons'>
+    <div class='item item-demonstrations'>
+    <a href='../index.html' class='state'><span>Demonstrations</span></a>
+  </div>
+  
+    <div class='item documentation'>
+    <a href='../documentation.html' class='state active'><span>Documentation</span></a>
+  </div>
+  
+      <div class='item item-download'>
+    <a href='../download.html' class='state'><span>Download</span>
+
+    
+      <i class='version-badge'>
+        1.4.5      </i>
+      
+    
+    </a>
+
+    
+     
+  </div>
+  
+       <div class='item item-community'>
+    <a href='../community.html' class='state'><span>Community</span></a>
+  </div>
+  
+  
+  </div>
+</div>
+</div>
+  
+  <div id='documentation_menu_top'>
+
+  <div class='item'>
+    <a href='installation.html' class='state'>Installation</a>
+  </div>
+
+  <div class='item'>
+    <a href='usage.html' class='state'>Usage</a>
+  </div>
+    
+  <div class='item'>
+    <a href='options.html' class='state'>Options</a>
+  </div>
+  
+    <div class='item'>
+    <a href='callbacks.html' class='state'>Callbacks</a>
+  </div>
+  
+  <div class='item'>
+    <a href='skins.html' class='state active'>Skins</a>
+  </div>
+
+  <div class='item'>
+    <a href='api.html' class='state'>API</a>
+  </div>
+  
+</div>
+
+  
+  <div id="content">
+    	<div id='documentation'>
+<div class='chapter'>
+  
+	<h1 class='has_font'>Skins</h1>
+	
+		    
+      <p>Skins are a combination of Javascript <a href='options.html'>Options</a>, CSS and a PNG sprite. 
+      To use a skin the only option required is the <span class='ic'>skin</span> option. Options of the selected 
+      skin are then applied as a starting point. Additional options will overwrite what's defined on the skin:</p>
+    
+      <pre><code>skin: 'fresco', ui: 'inside'</code></pre>
+      
+      <p>It is highly <strong>recommended</strong> to place all custom Javascript and CSS in separate files included below the Fresco files. 
+      This will allow upgrading without losing any custom skins. Here's an example:</p>
+      
+      <pre><code>&lt;script type='text/javascript' src='/js/fresco/fresco.js'&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="/css/fresco/fresco.css"/&gt;
+
+&lt;script type='text/javascript' src='/js/fresco/fresco-custom-skins.js'&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="/css/fresco/fresco-custom-skins.css"/&gt;
+
+&lt;script type='text/javascript'&gt;
+  // make a custom skin the new default (pro only)
+  Fresco.setDefaultSkin('custom');
+&lt;/script&gt;</code></pre>
+ 
+</div>
+
+
+<div class='chapter'>
+	  <h2 class='has_font' id='skins_javascript'>Creating skins</h2>
+	  
+	  <p>A custom skin requires Javascript, CSS and a sprite image. Let's start with the Javascript.</p>
+	  
+	  <h2 class='has_font'>Javascript</h2>
+	  
+	  <p>Newly created skins will inherit their options from a <span class='ic'>base</span> skin defined
+	  in <span class='ic'>Fresco.skins</span>.
+
+	  Because of this inheritance the only <a href='options.html'>Options</a> that have to be defined are those different from the base skin. 
+	  A custom skin is created by extending the <span class='ic'>Fresco.skins</span> object, here's how it could be defined:</p>
+
+	  <pre><code>$.extend(Fresco.skins, {
+  'custom' : {
+    ui: 'inside'
+  }
+});</code></pre>
+  
+
+    <p>After the skin has been created it can be applied using the <span class='ic'>skin</span> option:</p>
+    
+    <pre><code>&lt;a href="image.jpg" class="fresco" data-fresco-options="skin: 'custom'"&gt;Custom skin&lt;/a&gt;</code></pre>
+        
+    <p>When using groups the best way to apply the skin is using the <span class='ic'>data-fresco-group-options</span>:</p>
+    
+    <pre><code>&lt;a href="image1.jpg" 
+    class="fresco" 
+    data-fresco-group="example" 
+    data-fresco-group-options="skin: 'custom'"&gt;Same&lt;/a&gt;
+&lt;a href="image2.jpg" 
+    class="fresco" 
+    data-fresco-group="example"&gt;Skin&lt;/a&gt;</code></pre>
+</div>
+
+
+<div class='chapter'>
+    <h2 class='has_font' id='skins_css_sprites'>CSS</h2>
+    
+    <p>Once the Javascript for a skin is in place a skin will need CSS and a sprite for styling. To help with styling 
+      Fresco adds the name of the skin to certain classnames:</p>
+    
+    <pre><code>.fr-window-SKIN
+.fr-overlay-SKIN
+.fr-loading-SKIN</code></pre>
+
+    <p>It is recommended to copy the <span class='ic'>fresco</span> skin defined in <span class='ic'>fresco.css</span> as a starting point for new skins.
+       To do this copy all the definitions of the <span class='ic'>fresco</span> skin into to a separate css file.</p>
+
+    <p>This means all definitions starting with <span class='ic'>.fr-window-fresco</span>, <span class='ic'>.fr-overlay-fresco</span> and <span class='ic'>.fr-loading-fresco</span>.
+       Rename those to match your new skin. For example, if your skin is named <span class='ic'>custom</span> the CSS rules would have to start with:</p>
+
+    <pre><code>.fr-window-custom
+.fr-overlay-custom
+.fr-loading-custom</code></pre>
+</div>
+    
+
+<div class='chapter last'>
+
+    <h2 class='has_font' id='skins_default'>Changing the default skin <a class='pro' href='../download.html'>Pro only</a></h2>
+    
+    <p>To avoid having to set the <span class='ic'>skin</span> option all the time the default skin can be changed using <span class='ic'>Fresco.setDefaultSkin()</span>. 
+    It should be called after the file that defines custom skins, for example:</p>
+    
+    <pre><code>&lt;script type='text/javascript' src='/js/fresco/fresco.js'&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="/css/fresco/fresco.css"/&gt;
+
+&lt;script type='text/javascript' src='/js/fresco/fresco-custom-skins.js'&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="/css/fresco/fresco-custom-skins.css"/&gt;
+
+&lt;script type='text/javascript'&gt;
+  // make a custom skin the new default
+  Fresco.setDefaultSkin('custom');
+&lt;/script&gt;</code></pre>
+</div>
+</div> <!-- /#documentation -->
+
+
+
+
+<div id='documentationMenu'>
+  <h1 class='has_font'>Contents</h1>
+
+  <ul class='links'>
+      <li class='sub'><a href='skins.html#documentation' class='scrollTo'><span>Introduction</span></a></li>
+              <li class='splitter'><!-- - - - --></li>
+      
+      <li class='sub'><a href='skins.html#skins_javascript' class='scrollTo'><span>Creating skins</span></a></li>
+        <li class='sub subsub'><a href='skins.html#skins_javascript' class='scrollTo'><span>Javascript</span></a></li>
+        <li class='sub subsub'><a href='skins.html#skins_css_sprites' class='scrollTo'><span>CSS</span></a></li>
+        <li class='splitter'><!-- - - - --></li>
+      
+      <li class='sub'><a href='skins.html#skins_default' class='scrollTo'><span>Default skin</span> <sup>*</sup></a></li>
+  </ul>
+  
+  <p class='legenda'>* <a class='pro' href='../download.html'>Pro</a> Only</p>
+</div>  </div>
+  	
+  <div id='footer'>
+  <div class='columns'>
+    <div class='column column_half'>
+           </div>
+    
+    
+    <div class='column column_half rightmost'>
+	    <div class='copyright'>&copy; 2014 <a href='http://www.nickstakenburg.com'>Nick Stakenburg</a></div>
+	    
+	    <div class='by'>
+	   	  <a class='site' href='http://www.nickstakenburg.com'><!-- nickstakenburg --></a>
+	   	</div> 
+    </div>
+  </div>
+</div>
+
+  
+  
+<div id='userbar'>
+    
+		      <a href='../login.html' id='signin' class='user-button'>
+        <span class='text'>Sign in</span>       </a>
+        
+    <div id='all_projects'>
+      <div class='open'>
+        <div class='open_button_wrapper'>
+          <div class='open_button user-button'>
+            <span class='text'>Projects</span>           </div>
+        </div>
+        
+        <div class='open_links'>
+          <a href='../index.html'>
+            <span>Fresco - NEW</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/lightview'>
+            <span>Lightview</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/tipped'>
+            <span>Tipped</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+</div>
+</div></div>
+
+</body>
+</html>

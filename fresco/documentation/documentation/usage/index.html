@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+	
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="robots" content="index,follow" >
+<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" >
+<meta name="description" content="Create stunning overlays that work great at any screensize, in all browsers on every device." >
+<meta name="keywords" content="lightbox, jquery lightbox, responsive lightbox, youtube lightbox, vimeo lightbox, html5 lightbox, zoom lightbox" >    
+	<title>Fresco - A Beautiful Responsive Lightbox | Documentation</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!--[if lt IE 9]> <script type="text/javascript" src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+<script type="text/javascript" src="http://www.youtube.com/iframe_api"></script>
+<script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script type="text/javascript" src="../../assets/library/min/index-f=|js|default|documentation|documentation.js,|js|jquery.scrollTo|jquery.scrollTo-1.4.3.1-min.js.html"></script>
+  <script type="text/javascript" src="../../js/fresco/fresco.js"></script>
+<script type="text/javascript" src="../../js/prettify/prettify.js"></script>
+<script type="text/javascript" src="../../js/prettify/lang-css.js"></script>    
+    
+  <link href="../../css/default/reset.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../../css/default/style.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../../css/default/responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../../css/default/documentation/documentation.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../../css/default/documentation/documentation_responsive.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../../css/fresco/fresco.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../../css/prettify/prettify-fresco-dark-ns.css" media="all" rel="stylesheet" type="text/css" >
+<link href="../../favicon.ico" rel="shortcut icon" >    
+    
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34735153-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    
+</head>
+<body>
+
+<div id='page'><div id='page-wrapper'>
+
+  <div id='header'>
+    <a href='../../index.html' id='logo'><!-- logo --></a>
+    
+    
+<div id='menu'>
+  <div class='menu-buttons'>
+    <div class='item item-demonstrations'>
+    <a href='../../index.html' class='state'><span>Demonstrations</span></a>
+  </div>
+  
+    <div class='item documentation'>
+    <a href='../../documentation.html' class='state active'><span>Documentation</span></a>
+  </div>
+  
+      <div class='item item-download'>
+    <a href='../../download.html' class='state'><span>Download</span>
+
+    
+      <i class='version-badge'>
+        1.4.5      </i>
+      
+    
+    </a>
+
+    
+     
+  </div>
+  
+       <div class='item item-community'>
+    <a href='../../community.html' class='state'><span>Community</span></a>
+  </div>
+  
+  
+  </div>
+</div>
+</div>
+  
+  <div id='documentation_menu_top'>
+
+  <div class='item'>
+    <a href='../installation.html' class='state'>Installation</a>
+  </div>
+
+  <div class='item'>
+    <a href='../usage.html' class='state active'>Usage</a>
+  </div>
+    
+  <div class='item'>
+    <a href='../options.html' class='state'>Options</a>
+  </div>
+  
+    <div class='item'>
+    <a href='../callbacks.html' class='state'>Callbacks</a>
+  </div>
+  
+  <div class='item'>
+    <a href='../skins.html' class='state'>Skins</a>
+  </div>
+
+  <div class='item'>
+    <a href='../api.html' class='state'>API</a>
+  </div>
+  
+</div>
+
+  
+  <div id="content">
+    	
+<div id='documentation'>
+
+<div class='chapter'>
+  <h1 id='usage_basic' class='first has_font'>Usage</h1>
+  
+  <p>The easiest way to use Fresco is by adding the class <span class='ic'>fresco</span> to a link.</p>
+  
+  <pre class='has-example'><code>&lt;a href="image.jpg" class="fresco"&gt;Show image&lt;/a&gt;</code></pre>
+  <div class='example'>
+    <a href="../../images/default/index/ezekiel_vg/ezekiel_vg_2.jpg" class="fresco">Show image</a>
+  </div>
+  
+  <p>The alternative is using the Javascript API. See the <a href='../api.html'>API documentation</a> for more on it, this section will cover just the HTML approach.</p>
+  
+  <pre><code>Fresco.show('image.jpg');</code></pre>
+  
+  <p>A caption can be added by using the <span class='ic'>data-fresco-caption</span> attribute:</p>
+  
+  <pre class='has-example'><code>&lt;a href="image.jpg" 
+   class="fresco" 
+   data-fresco-caption="Caption below the image"&gt;Caption&lt;/a&gt;</code></pre>
+  <div class='example'>
+    <a href="../../images/default/index/ezekiel_vg/ezekiel_vg_2.jpg" 
+       class="fresco" 
+       data-fresco-caption="Caption below the image">Caption</a>
+  </div>
+  
+  <h2>Options</h2>
+  
+  <p id='usage_options'>Extra <a href='../options.html'>Options</a> 
+  and <a href='../callbacks.html'>Callbacks</a> can be added using the <span class='ic'>data-fresco-options</span> attribute.</p>
+  
+  <pre class='has-example'><code>&lt;a href="image.jpg" 
+   class="fresco" 
+   data-fresco-caption="Caption on top of the image" 
+   data-fresco-options="ui: 'inside'"&gt;Caption on top&lt;/a&gt;</code></pre>
+  <div class='example'>
+    <a href="../../images/default/index/ezekiel_vg/ezekiel_vg_2.jpg" class="fresco" data-fresco-caption="Caption on top of the image" data-fresco-options="ui: 'inside'">Caption on top </a> 
+    <sup class='pro'>Pro</sup>
+  </div>
+
+</div>
+
+
+
+
+<div class='chapter'>
+  <h2 class='has_font' id='usage_groups'>Groups</h2>
+  
+  <p>Create groups by giving links a <span class='ic'>data-fresco-group</span> attribute. 
+  Each group should have a unique name. Groups can contain multiple types of content, images can be mixed with Youtube videos for example:</p>
+  
+  <pre class='has-example'><code>&lt;a href="image1.jpg" 
+   class="fresco" 
+   data-fresco-group="unique_name"&gt;Image 1&lt;/a&gt;
+&lt;a href="image2.jpg" 
+   class="fresco" 
+   data-fresco-group="unique_name"&gt;Image 2&lt;/a&gt;</code></pre>
+
+  <div class='example'>
+    <a href='../../images/default/index/ezekiel_vg/ezekiel_vg_1.jpg' 
+       class="fresco" 
+       data-fresco-group="unique_name">Image 1</a>
+    <a href='../../images/default/index/ezekiel_vg/ezekiel_vg_2.jpg' 
+       class="fresco" 
+       data-fresco-group="unique_name">Image 2</a>
+  </div>
+
+  <p id='usage_grouped_options'>Whenever links in a group share options repeating those can be avoided by using the <span class='ic'>data-fresco-group-options</span> attribute. 
+  Options set on this attribute will be used by the entire group:</p>
+  
+  <pre class='has-example'><code>&lt;a href="image1.jpg" 
+   class="fresco" 
+   data-fresco-group="shared_options" 
+   data-fresco-group-options="ui: 'inside'"&gt;This group&lt;/a&gt;
+&lt;a href="image2.jpg" 
+   class="fresco" 
+   data-fresco-group="shared_options"&gt;has shared&lt;/a&gt;
+&lt;a href="image3.jpg" 
+   class="fresco" 
+   data-fresco-group="shared_options"&gt;options&lt;/a&gt;</code></pre>
+  <div class='example'>
+    <a href='../../images/default/index/ezekiel_vg/ezekiel_vg_1.jpg' 
+       class="fresco" 
+       data-fresco-group="shared_options" 
+       data-fresco-group-options="ui: 'inside'">This group</a>
+    <a href='../../images/default/index/ezekiel_vg/ezekiel_vg_2.jpg' 
+       class="fresco" 
+       data-fresco-group="shared_options">has shared</a>
+    <a href='../../images/default/index/ezekiel_vg/ezekiel_vg_3.jpg' 
+       class="fresco" 
+       data-fresco-group="shared_options">options</a>
+  </div>
+
+</div>
+
+
+<div class='chapter'>
+  <h2 class='has_font' id='usage_ui'>User Interface <a class='pro' href='../../download.html'>Pro only</a></h2>
+  
+  
+  <div class='columns'>
+    <div class='column double'>
+
+		  <p>There are two types of user interface settings, <span class='ic'>outside</span> and <span class='ic'>inside</span>. 
+		  <span class='ic'>outside</span> is the default and will put user interface elements outside of the window.</p>
+		  
+		  <pre class='has-example'><code>data-fresco-group-options="ui: 'outside'"</code></pre>
+      <div class='example'>
+		    <a href='../../images/default/index/art/frans_hals.jpg' 
+		       class="fresco" 
+		       data-fresco-group="example_ui_outside"
+		       data-fresco-caption="Frans Hals, Banquet of the Officers of the St George Civic Guard, 1627">UI Outside</a> <!-- ui: 'outside' is the default so no need to set it -->
+		    <a href='../../images/default/index/art/rembrandt.jpg' 
+		       class="fresco" 
+		       data-fresco-group="example_ui_outside"
+		       data-fresco-caption="Rembrandt, The Night Watch, 1642">2</a>
+		    <a href='../../images/default/index/art/charles_le_brun.jpg' 
+		       class="fresco" 
+		       data-fresco-group="example_ui_outside"
+		       data-fresco-caption="Charles Le Brun, The Repentant Magdalen, 1655">3</a>
+		    <a href='../../images/default/index/art/reynolds.jpg' 
+		       class="fresco" 
+		       data-fresco-group="example_ui_outside"
+		       data-fresco-caption="Sir Joshua Reynolds, The Countess of Dartmouth, 1757">4</a>
+	    </div>
+	    
+      <p>The alternative is <span class='ic'>inside</span>, it puts the elements inside the window:</p>
+      
+      <pre class='has-example'><code>data-fresco-group-options="ui: 'inside'"</code></pre>
+      <div class='example'>
+		    <a href='../../images/default/index/art/frans_hals.jpg' 
+		       class="fresco" 
+		       data-fresco-group="example_ui_inside" 
+		       data-fresco-group-options="ui: 'inside'"
+		       data-fresco-caption="Frans Hals, Banquet of the Officers of the St George Civic Guard, 1627">UI Inside</a>
+		    <a href='../../images/default/index/art/rembrandt.jpg' 
+		       class="fresco" 
+		       data-fresco-group="example_ui_inside"
+		       data-fresco-caption="Rembrandt, The Night Watch, 1642">2</a>
+		    <a href='../../images/default/index/art/charles_le_brun.jpg' 
+		       class="fresco" 
+		       data-fresco-group="example_ui_inside"
+		       data-fresco-caption="Charles Le Brun, The Repentant Magdalen, 1655">3</a>
+		    <a href='../../images/default/index/art/reynolds.jpg' 
+		       class="fresco" 
+		       data-fresco-group="example_ui_inside"
+		       data-fresco-caption="Sir Joshua Reynolds, The Countess of Dartmouth, 1757">4</a>
+	    </div>
+	    
+	    <div class='note'><div class='padder'>
+        <span class='icon_font'>=</span>
+        
+        <strong>Note:</strong> Touch devices will <strong>always</strong> use a different <strong>touch based</strong> user interface not matter which ui option is selected.
+      </div></div>
+	    
+	    <div class='note'><div class='padder'>
+		    <span class='icon_font'>!</span>
+		    
+		    <strong>Important:</strong> <span class='ic'>ui: 'outside'</span> will be <strong>forced</strong> whenever a group contains 
+		    more than images. The reason for this is that interaction with content like Youtube videos would be impossible 
+		    when it has overlapping user interface elements.
+		  </div></div>
+		  
+    </div>
+    
+    
+    <div class='column rightmost'>
+      <img src='../../images/default/documentation/ui.gif' alt=''/>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div class='chapter'>
+  <h2 class='has_font' id='usage_zoom'>Zoom <a class='pro' href='../../download.html'>Pro only</a></h2>
+  
+  
+  <div class='columns'>
+    <div class='column double'>
+
+		  <p>The <span class='ic'>overflow</span> option can be used to create a zoom-like effect. 
+		  By default overflow is set to <span class='ic'>none</span>, which resizes images to fit within the viewport. 
+		  Using overflow <span class='ic'>x</span> or <span class='ic'>y</span> will cause overflow along that axis, allowing scroll whenever the image overflows.</p>
+		  
+		  <p>Here's a popular usecase that sets overflow to <span class='ic'>y</span>, creating overflow along the y-axis 
+        combined with vertical thumbnails:</p>
+		  
+		  <pre class='has-example'><code>&lt;a href="large_image_2.jpg" 
+   class="fresco" 
+   data-fresco-group='overflow-y-example' 
+   data-fresco-group-options="overflow: 'y', thumbnails: 'vertical'"&gt;Zoom&lt;/a&gt;
+&lt;a href="large_image_2.jpg" 
+   class="fresco"
+   data-fresco-group='overflow-y-example'&gt;2&lt;/a&gt;</code></pre>
+		  <div class='example'>
+		    <a href="../../images/default/index/zoom/zoom_1.jpg" 
+		       class="fresco" 
+           data-fresco-group='overflow-y-example' 
+		       data-fresco-group-options="overflow: 'y', thumbnails: 'vertical'">Zoom</a>
+        <a href="../../images/default/index/zoom/zoom_2.jpg" 
+           data-fresco-group='overflow-y-example' 
+           class="fresco">2</a>
+		  </div>
+		  
+		  <p>Using overflow <span class='ic'>both</span> will cause overflow along both axis:</p>
+		  
+		  <pre class='has-example'><code>&lt;a href="large_image.jpg" 
+   class="fresco" 
+   data-fresco-options="overflow: 'both', ui: 'inside'"&gt;Overflow on both axis&lt;/a&gt;</code></pre>
+		  <div class='example'>
+		    <a href="../../images/default/index/zoom/zoom_1.jpg" 
+		       class="fresco" 
+		       data-fresco-options="overflow: 'both', ui: 'inside'">Overflow on both axis</a>
+		  </div>
+		  
+		  <div class='note'><div class='padder'>
+        <span class='icon_font'>=</span>
+        
+        <strong>Note:</strong> Overflow is not supported on <strong>touch</strong> based devices because those devices use a different user interface.
+      </div></div>
+		    
+    </div>
+    
+    
+    <div class='column rightmost'>
+      <img src='../../images/default/documentation/zoom.gif' alt=''/>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div class='chapter'>
+  <h2 class='has_font' id='usage_thumbnails'>Thumbnails <a class='pro' href='../../download.html'>Pro only</a></h2>
+  
+  <p>Thumbnails are enabled by default and are automatically generated for images and Youtube videos. 
+  They can also be disabled by setting the <span class='ic'>thumbnails</span> option to false:</p>
+  
+  <pre class='has-example'><code>data-fresco-group-options="thumbnails: false"</code></pre>
+  <div class='example'>
+    <a href='../../images/default/index/dorhout-mees/dm1.jpg' 
+       class="fresco" 
+       data-fresco-group="thumbnails-disabled-demo" 
+       data-fresco-group-options="thumbnails: false">Thumbnails disabled</a>
+    <a href='../../images/default/index/dorhout-mees/dm2.jpg' 
+       class="fresco" 
+       data-fresco-group="thumbnails-disabled-demo">2</a>
+    <a href='../../images/default/index/dorhout-mees/dm3.jpg' 
+       class="fresco" 
+       data-fresco-group="thumbnails-disabled-demo">3</a>
+  </div>
+
+  <p>By default the thumbnails option is set to <span class='ic'>horizontal</span>, the alternative is <span class='ic'>vertical</span>:</span>
+
+  <pre class='has-example'><code>data-fresco-group-options="thumbnails: 'vertical'"</code></pre>
+  <div class='example'>
+    <a href='../../images/default/index/dorhout-mees/dm1.jpg' 
+       class="fresco" 
+       data-fresco-group="thumbnails-vertical-demo" 
+       data-fresco-group-options="thumbnails: 'vertical'">Vertical thumbnails</a>
+    <a href='../../images/default/index/dorhout-mees/dm2.jpg' 
+       class="fresco" 
+       data-fresco-group="thumbnails-vertical-demo">2</a>
+    <a href='../../images/default/index/dorhout-mees/dm3.jpg' 
+       class="fresco" 
+       data-fresco-group="thumbnails-vertical-demo">3</a>
+  </div>
+
+  <h2 class='has_font' id='usage_thumbnails_performance'>Performance, best practices</h2>
+  
+  <p>It's <strong>recommended</strong> to create your own thumbnails, this avoids having to load entire source images to generate them. 
+  Providing thumbnails using the <span class='ic'>thumbnail</span> option speeds up load times and saves bandwidth, especially noticeable with groups containing large images. 
+  Scripts like <a href='http://phpthumb.sourceforge.net/' target='_blank'>phpThumb</a> or <a href='http://www.imagemagick.org' target='_blank'>ImageMagick</a> can be used to generate (cached) thumbnails on the fly:</p>
+  
+  <pre class='has-example'><code>&lt;a href="image1.jpg" 
+   class="fresco" 
+   data-fresco-group="thumbnail-example" 
+   data-fresco-options="thumbnail: 'phpThumb.php?src=image1.jpg&amp;w=240&amp;h=240&amp;zc=1'"
+&gt;Generated Thumbnails 1&lt;/a&gt;
+&lt;a href="image2.jpg" 
+   class="fresco" 
+   data-fresco-group="thumbnail-example" 
+   data-fresco-options="thumbnail: 'phpThumb.php?src=image2.jpg&amp;w=240&amp;h=240&amp;zc=1'"
+&gt;2&lt;/a&gt;</code></pre>
+    <div class='example'>
+    <a href='../../images/default/index/art/frans_hals.jpg' 
+       class="fresco" 
+       data-fresco-group="thumbnail-example" 
+       data-fresco-options="thumbnail: '/assets/library/phpThumb/phpThumb.php?src=/images/default/index/art/frans_hals.jpg&w=240&h=240&zc=1'">Generated Thumbnails</a>
+    <a href='../../images/default/index/art/rembrandt.jpg' 
+       class="fresco" 
+       data-fresco-group="thumbnail-example" 
+       data-fresco-options="thumbnail: '/assets/library/phpThumb/phpThumb.php?src=/images/default/index/art/rembrandt.jpg&w=240&h=240&zc=1'">2</a>
+  </div>
+  
+  <div class='note'><div class='padder'>
+    <span class='icon_font'>=</span>
+    
+    <strong>Note:</strong> The thumbnails generated are set to <strong>240x240px</strong> because the maximum dimensions of a thumbnail are 120x120px. 
+    Having double the size available will make sure the thumbnails look good on Retina displays.
+  </div></div>
+  
+  <div class='note'><div class='padder'>
+    <span class='icon_font'>=</span>
+    
+    <strong>Note:</strong> Thumbnails aren't used on <strong>touch</strong> based devices, this is mostly for performance reasons.
+  </div></div>
+  
+  
+</div>
+
+
+<div class='chapter'>
+  <h1 class='has_font' id='usage_types'>Media types</h1>
+  
+  <p>Fresco attempts to automatically detect the media type using the given url. The type can also be set to one of the following values using the <span class='ic'>data-fresco-type</span> attribute: 
+  <span class='ic'>image</span>,  
+  <span class='ic'>youtube</span> or 
+  <span class='ic'>vimeo</span>. 
+  
+  <h2 class='has_font' id='usage_type_image'>Image</h2>
+  
+  <p>Most of the time setting the type will not be required for images, it will be required in cases where Fresco cannot detect it based on the url:</p>
+  
+  <pre><code>&lt;a href="/images/?id=1337" class="fresco" data-fresco-type="image"&gt;Image&lt;/a&gt;</code></pre>
+  
+  <h2 class='has_font' id='usage_type_youtube'>Youtube <a class='pro' href='../../download.html'>Pro only</a></h2>
+  
+  <p>Links to Youtube videos will be embedded using the Youtube &lt;iframe&gt; API.</p>
+  
+  
+  <pre class='has-example'><code>&lt;a href="http://www.youtube.com/watch?v=c0KYU2j0TM4" class="fresco"&gt;Youtube&lt;/a&gt;</code></pre>
+  <div class='example'>
+    <a href="http://www.youtube.com/watch?v=c0KYU2j0TM4" class="fresco">Youtube</a>
+  </div>
+  
+  <p>Options of the Youtube &lt;iframe&gt; API can be set using the <span class='ic'>youtube</span> option, see 
+  <a href='https://developers.google.com/youtube/player_parameters?playerVersion=HTML5' blank="_blank">YouTube Embedded Players and Player Parameters</a> 
+  for all the available options. Setting the <span class='ic'>width</span> and <span class='ic'>height</span> option might also be desired:</p>
+  
+  <pre class='has-example'><code>&lt;a href="http://www.youtube.com/watch?v=7gFwvozMHR4" 
+    class="fresco" 
+    data-fresco-options="
+      width: 853, 
+      height: 480,
+      youtube: { autoplay: 0 }
+    "&gt;Youtube - Dimensions and options&lt;/a&gt;</code></pre>
+  <div class='example'>
+    <a href="http://www.youtube.com/watch?v=7gFwvozMHR4" 
+       class="fresco" 
+       data-fresco-options="
+         width: 853, 
+         height: 480,
+         youtube: { autoplay: 0 }
+       ">Youtube - Dimensions and options</a>
+  </div>
+  
+  <div class='note'><div class='padder'>
+    <span class='icon_font'>=</span>
+    
+    <strong>Note:</strong> By default Youtube optimizes the quality setting based on video dimensions, even with <span class='ic'>hd: 1</span> set HD might not be enabled. 
+    Fresco can <strong>force HD quality</strong> onto videos if the <strong>Youtube Iframe API</strong> is included, this is optional and covered in the <a href='../installation.html'>installation instructions</a>.
+    
+  </div></div>
+  
+  
+  <h2 class='has_font' id='usage_type_vimeo'>Vimeo <a class='pro' href='../../download.html'>Pro only</a></h2>
+  
+  <p>Vimeo links are embedded using the Vimeo API:</p>
+  
+  <pre class='has-example'><code>&lt;a href="http://vimeo.com/32071937" class="fresco"&gt;Vimeo&lt;/a&gt;</code></pre>
+  <div class='example'>
+    <a href="http://vimeo.com/32071937" class='fresco'>Vimeo</a>
+  </div>
+  
+  <p>Options of the Vimeo Player API can be set using the <span class='ic'>vimeo</span> options. 
+  See <a href='http://developer.vimeo.com/player/embedding' target='_blank'>Vimeo Player Embedding</a> for all the available options:</p>  
+  
+  <pre class='has-example'><code>&lt;a href="http://vimeo.com/36897783" 
+   class="fresco" 
+   data-fresco-options="
+     width: 640, 
+     height: 272, 
+     vimeo: {
+       autoplay: 0,
+       portrait: 1
+     }
+   "&gt;Dimensions and options&lt;/a&gt;</code></pre>
+  <div class='example'>
+    <a href="http://vimeo.com/36897783" 
+       class='fresco' 
+       data-fresco-options="
+         width: 853, 
+         height: 480,
+         vimeo: {
+           autoplay: 0,
+           portrait: 1
+         }
+       ">Vimeo - Dimensions and options</a>
+  </div>
+  
+  <div class='note'><div class='padder'>
+    <span class='icon_font'>=</span>
+    
+    <strong>Note:</strong> Vimeo videos don't have a thumbnail by default, this can be set using the <span class='ic'>thumbnail</span> option.
+  </div></div>
+  
+</div>
+
+
+
+<div class='chapter last'>
+  <h1 class='has_font' id='usage_javascript_api'>Javascript API <a class='pro' href='../../download.html'>Pro only</a></h1>
+  
+  <p>For more advanced use see the documentation on the <a href='../api.html'>Javascript API</a>. All the demonstrations on this page 
+  can also be created using the Javascript API, you might even prefer it over the HTML approach.</p>
+  
+  <pre><code>Fresco.show([
+  { url: 'image1.jpg', caption: 'Caption below the image' },
+  { url: 'image2.jpg' },
+  { url: 'http://www.youtube.com/watch?v=7gFwvozMHR4', 
+    options: {
+      width: 853, 
+      height: 480
+    }
+  },
+  { url: 'http://vimeo.com/36897783', 
+    options: {
+      width: 853, 
+      height: 480,
+      thumbnail: 'vimeo_thumbnail.jpg'
+    }
+  }
+], {
+  afterPosition: function(position) {
+    alert('Moved to position: ' + position); 
+  }
+});</code></pre>
+  
+</div>
+
+
+</div>
+
+
+
+<div id='documentationMenu'>
+  <h1 class='has_font'>Contents</h1>
+
+  <ul class='links'>
+      <li class='sub'><a href='index.html#usage_basic' class='scrollTo'><span>Usage</span></a></li>
+        <li class='sub subsub'><a href='index.html#usage_options' class='scrollTo'><span>Options</span></a></li>
+        <li class='sub subsub'><a href='index.html#usage_groups' class='scrollTo'><span>Groups</span></a></li>
+        <li class='sub subsub'><a href='index.html#usage_ui' class='scrollTo'><span>User Interface</span> <sup>*</sup></a></li>
+        <li class='sub subsub'><a href='index.html#usage_zoom' class='scrollTo'><span>Zoom</span> <sup>*</sup></a></li>
+        <li class='sub subsub'><a href='index.html#usage_thumbnails' class='scrollTo'><span>Thumbnails</span> <sup>*</sup></a></li>
+        <li class='sub subsubsub'><a href='index.html#usage_thumbnails_performance' class='scrollTo'><span>Performance</span></a></li>
+        <li class='splitter'><!-- --- --></li>
+      
+      <li class='sub'><a href='index.html#usage_types' class='scrollTo'><span>Media types</span></a></li>
+        <li class='sub subsub'><a href='index.html#usage_type_image' class='scrollTo'><span>Image</span></a></li>
+        <li class='sub subsub'><a href='index.html#usage_type_youtube' class='scrollTo'><span>Youtube</span> <sup>*</sup></a></li>
+        <li class='sub subsub'><a href='index.html#usage_type_vimeo' class='scrollTo'><span>Vimeo</span> <sup>*</sup></a></li>
+        <li class='splitter'><!-- --- --></li>
+     
+     <li class='sub'><a href='index.html#usage_javascript_api' class='scrollTo'><span>Javascript API</span> <sup>*</sup></a></li>
+  </ul>
+  
+  <p class='legenda'>* <a class='pro' href='../../download.html'>Pro</a> Only</p>
+</div>  </div>
+  	
+  <div id='footer'>
+  <div class='columns'>
+    <div class='column column_half'>
+           </div>
+    
+    
+    <div class='column column_half rightmost'>
+	    <div class='copyright'>&copy; 2014 <a href='http://www.nickstakenburg.com'>Nick Stakenburg</a></div>
+	    
+	    <div class='by'>
+	   	  <a class='site' href='http://www.nickstakenburg.com'><!-- nickstakenburg --></a>
+	   	</div> 
+    </div>
+  </div>
+</div>
+
+  
+  
+<div id='userbar'>
+    
+		      <a href='../../login.html' id='signin' class='user-button'>
+        <span class='text'>Sign in</span>       </a>
+        
+    <div id='all_projects'>
+      <div class='open'>
+        <div class='open_button_wrapper'>
+          <div class='open_button user-button'>
+            <span class='text'>Projects</span>           </div>
+        </div>
+        
+        <div class='open_links'>
+          <a href='../../index.html'>
+            <span>Fresco - NEW</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/lightview'>
+            <span>Lightview</span>
+          </a>
+          <a href='http://projects.nickstakenburg.com/tipped'>
+            <span>Tipped</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+</div>
+</div></div>
+
+</body>
+</html>
